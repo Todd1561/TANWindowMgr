@@ -3,16 +3,16 @@ Imports System.Diagnostics
 
 Public Class Form1
 
-    Public WindowList As New Dictionary(Of String, String)
+    Public WindowList As New Dictionary(Of String, Process)
 
     Private Declare Function GetWindowPlacement Lib "user32" (ByVal hwnd As IntPtr, ByRef lpwndpl As WINDOWPLACEMENT) As Integer
     <DllImport("user32.dll")>
     Private Shared Function SetWindowPlacement(ByVal hWnd As IntPtr, ByRef lpwndpl As WINDOWPLACEMENT) As Boolean
     End Function
 
-    <DllImport("user32.dll", SetLastError:=True)>
-    Private Shared Function FindWindow(idThread As Integer, lpWindowName As String) As IntPtr
-    End Function
+    '<DllImport("user32.dll", SetLastError:=True)>
+    'Private Shared Function FindWindow(idThread As Integer, lpWindowName As String) As IntPtr
+    'End Function
 
     Private Structure POINTAPI
         Public x As Integer
@@ -44,7 +44,7 @@ Public Class Form1
         For Each item As ListViewItem In lvApps.Items
             If item.Checked Then
 
-                Dim hWnd As IntPtr = FindWindow(Nothing, WindowList(item.Text))
+                Dim hWnd As IntPtr = WindowList(item.Text).MainWindowHandle ' FindWindow(WindowList(item.Text).Id, Nothing)
                 Dim wpTemp As WINDOWPLACEMENT
                 GetWindowPlacement(hWnd, wpTemp)
 
@@ -67,7 +67,7 @@ Public Class Form1
             If Not String.IsNullOrEmpty(proc.MainWindowTitle) Then
 
                 Try
-                    If Not WindowList.ContainsKey(proc.ProcessName) And proc.Responding And proc.ProcessName <> "ApplicationFrameHostx" And proc.ProcessName <> "TANWindowMgr" Then WindowList.Add(proc.ProcessName, proc.MainWindowTitle)
+                    If Not WindowList.ContainsKey(proc.ProcessName) And proc.Responding And proc.ProcessName <> "ApplicationFrameHostx" And proc.ProcessName <> "TANWindowMgr" And proc.MainWindowTitle <> "" Then WindowList.Add(proc.ProcessName, proc)
                 Catch ex As Exception
                     Debug.WriteLine(ex.Message)
                 End Try
@@ -81,9 +81,9 @@ Public Class Form1
 
         GetWindowList()
 
-        For Each window As KeyValuePair(Of String, String) In WindowList
+        For Each window As KeyValuePair(Of String, Process) In WindowList
             Dim lvi As New ListViewItem(window.Key)
-            lvi.SubItems.Add(window.Value)
+            lvi.SubItems.Add(window.Value.MainWindowTitle)
             lvApps.Items.Add(lvi)
         Next
 
@@ -101,7 +101,7 @@ Public Class Form1
 
             If WindowList.ContainsKey(specs(0)) Then
 
-                Dim hWnd As IntPtr = FindWindow(Nothing, WindowList(specs(0)))
+                Dim hWnd As IntPtr = WindowList(specs(0)).MainWindowHandle ' FindWindow(Nothing, WindowList(specs(0)).MainWindowTitle)
                 Dim wpTemp As WINDOWPLACEMENT
                 GetWindowPlacement(hWnd, wpTemp)
                 wpTemp.showCmd = 1
