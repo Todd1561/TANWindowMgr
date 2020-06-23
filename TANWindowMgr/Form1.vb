@@ -35,7 +35,7 @@ Public Class Form1
         Public rcNormalPosition As RECT
     End Structure
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
         GetWindowList()
 
@@ -67,7 +67,7 @@ Public Class Form1
             If Not String.IsNullOrEmpty(proc.MainWindowTitle) Then
 
                 Try
-                    If Not WindowList.ContainsKey(proc.ProcessName) And proc.Responding And proc.ProcessName <> "ApplicationFrameHostx" And proc.ProcessName <> "TANWindowMgr" And proc.MainWindowTitle <> "" Then WindowList.Add(proc.ProcessName, proc)
+                    If Not WindowList.ContainsKey(proc.ProcessName) And proc.Responding And proc.ProcessName <> "ApplicationFrameHostx" And proc.ProcessName <> "TANWindowMgr" And proc.MainWindowTitle <> "" Then WindowList.Add(proc.ProcessName, proc) 'applicationframehost is needed for metro apps like sticky notes
                 Catch ex As Exception
                     Debug.WriteLine(ex.Message)
                 End Try
@@ -77,7 +77,7 @@ Public Class Form1
         Next
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         GetWindowList()
 
@@ -123,5 +123,16 @@ Public Class Form1
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.Close()
+    End Sub
+
+    Sub CheckAllWindows()
+        For Each item As ListViewItem In lvApps.Items
+            item.Checked = True
+        Next
+    End Sub
+
+    Sub btnSaveAll_Click(sender As Object, e As EventArgs) Handles btnSaveAll.Click
+        CheckAllWindows()
+        btnSave.PerformClick()
     End Sub
 End Class

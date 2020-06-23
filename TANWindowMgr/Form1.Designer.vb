@@ -29,12 +29,14 @@ Partial Class Form1
         Me.btnSave = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnSaveAll = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lvApps
         '
         Me.lvApps.CheckBoxes = True
         Me.lvApps.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Application, Me.WindowTitle})
+        Me.lvApps.HideSelection = False
         Me.lvApps.Location = New System.Drawing.Point(12, 29)
         Me.lvApps.Name = "lvApps"
         Me.lvApps.Size = New System.Drawing.Size(596, 251)
@@ -54,11 +56,11 @@ Partial Class Form1
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(442, 286)
+        Me.btnSave.Location = New System.Drawing.Point(429, 286)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnSave.Size = New System.Drawing.Size(88, 23)
         Me.btnSave.TabIndex = 1
-        Me.btnSave.Text = "Save"
+        Me.btnSave.Text = "Save Selected"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'Label1
@@ -79,11 +81,21 @@ Partial Class Form1
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
+        'btnSaveAll
+        '
+        Me.btnSaveAll.Location = New System.Drawing.Point(336, 286)
+        Me.btnSaveAll.Name = "btnSaveAll"
+        Me.btnSaveAll.Size = New System.Drawing.Size(75, 23)
+        Me.btnSaveAll.TabIndex = 4
+        Me.btnSaveAll.Text = "Save All"
+        Me.btnSaveAll.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(620, 316)
+        Me.Controls.Add(Me.btnSaveAll)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnSave)
@@ -106,4 +118,5 @@ Partial Class Form1
     Friend WithEvents btnSave As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents btnCancel As Button
+    Friend WithEvents btnSaveAll As Button
 End Class

@@ -86,9 +86,9 @@ Partial Class frmAbout
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(58, 81)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(115, 13)
+        Me.Label4.Size = New System.Drawing.Size(121, 13)
         Me.Label4.TabIndex = 10
-        Me.Label4.Text = "Version 1.1 (6/9/2020)"
+        Me.Label4.Text = "Version 1.2 (6/23/2020)"
         '
         'frmAbout
         '
