@@ -4,18 +4,18 @@ When working with multiple screens you'll often find that windows don't stay whe
 
 ## Command Line Arguments
 
-`-saveall`   Save all open windows to the configuration file
-`-restore`  Restore layout found in the configuration file
+`-saveall`   Save all open windows to the configuration file  
+`-restore`  Restore layout found in the configuration file  
 `-autoexit`  Don't keep TANWindowManager active in the tray. |Useful with the above 2 switches.
 
 ### Examples
-`TANWindowMgr.exe -saveall -autoexit`
+`TANWindowMgr.exe -saveall -autoexit`  
 `TANWindowMgr.exe -restore -autoexit`
 
 ## Known Limitations
 Does not reliably handle situations where you have multiple instances of the same program open.
 
 ## Author
-Todd Nelson
-todd@toddnelson.net
+Todd Nelson  
+todd@toddnelson.net  
 https://toddnelson.net
