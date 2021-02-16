@@ -15,12 +15,14 @@ When working with multiple screens you'll often find that windows don't stay whe
 ## Known Limitations
 Does not reliably handle situations where you have multiple instances of the same program open.
 
-## Getting Started - Run the Pre-Built Binary
+## Getting Started
+
+### Run the Pre-Built Binary
 
 In the Releases section in the right-hand sidebar, click Version 1.2 and from 
 there download TANWindowMgr.exe.
 
-## Getting Started - Build it Yourself
+### Build it Yourself
 
 1. Download Visual Studio Community 2019 from 
    https://visualstudio.microsoft.com/downloads/
