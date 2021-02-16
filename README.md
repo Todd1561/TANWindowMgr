@@ -15,6 +15,22 @@ When working with multiple screens you'll often find that windows don't stay whe
 ## Known Limitations
 Does not reliably handle situations where you have multiple instances of the same program open.
 
+## Getting Started - Run the Pre-Built Binary
+
+In the Releases section in the right-hand sidebar, click Version 1.2 and from 
+there download TANWindowMgr.exe.
+
+## Getting Started - Build it Yourself
+
+1. Download Visual Studio Community 2019 from 
+   https://visualstudio.microsoft.com/downloads/
+2. During install, select at least the .NET desktop development
+   tools.
+3. Open the TANWindowMgr\TANWindowMgr.sln
+4. Build | Build Solution or Ctrl+Shift+B
+5. The .exe file will be created in the folder
+   TANWindowMgr\TANWindowMgr\bin\Debug\TANWindowMgr.exe
+
 ## Author
 Todd Nelson  
 todd@toddnelson.net  
