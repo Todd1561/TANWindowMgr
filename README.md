@@ -19,8 +19,10 @@ Does not reliably handle situations where you have multiple instances of the sam
 
 ### Run the Pre-Built Binary
 
-In the Releases section in the right-hand sidebar, click Version 1.2 and from 
-there download TANWindowMgr.exe.
+1. In the Releases section in the right-hand sidebar, click Version 1.2 and from 
+   there download TANWindowMgr.exe.
+2. If you run the software from folder X, the Settings.ini will be created 
+   there. If you move the .exe file, move the Settings.ini file with it.
 
 ### Build it Yourself
 
@@ -32,6 +34,7 @@ there download TANWindowMgr.exe.
 4. Build | Build Solution or Ctrl+Shift+B
 5. The .exe file will be created in the folder
    TANWindowMgr\TANWindowMgr\bin\Debug\TANWindowMgr.exe
+6. Run as described in the prior section.
 
 ## Author
 Todd Nelson  
