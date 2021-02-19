@@ -22,7 +22,7 @@ Does not reliably handle situations where you have multiple instances of the sam
 1. In the Releases section in the right-hand sidebar, click the latest version and from there download TANWindowMgr.exe.
 2. The Settings.ini will be created in the same directory as TANWindowMgr.exe. If you move the .exe file, move the Settings.ini file with it.
 
-### Build it Yourself
+### Or... Build it Yourself
 
 1. Download Visual Studio Community 2019 from 
    https://visualstudio.microsoft.com/downloads/
