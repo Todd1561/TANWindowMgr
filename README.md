@@ -4,14 +4,14 @@ When working with multiple screens you'll often find that windows don't stay whe
 
 ## Command Line Arguments
 
-`-saveall`   Save all open windows to the configuration file under the 'Default' profile. 
+`-saveall`   Save all open windows to the configuration file under the `Default` profile.  
 `-restore`  Restore layout for the 'Default' profile from the configuration file.  
-`-restore=<Name>`  Restore layout for the '<Name>' profile from the configuration file.  Use quotes if the profile name has spaces or special characters.  
+`-restore=<Name>`  Restore layout for the `<Name>` profile from the configuration file.  Use quotes if the profile name has spaces or special characters.  
 `-autoexit`  Don't keep TANWindowManager active in the tray. Useful with the above switches.
 
 ### Examples
 `TANWindowMgr.exe -saveall -autoexit`  
-`TANWindowMgr.exe -restore -autoexit`
+`TANWindowMgr.exe -restore -autoexit`  
 `TANWindowMgr.exe -restore="My Home Layout" -autoexit`
 
 ## Known Limitations
