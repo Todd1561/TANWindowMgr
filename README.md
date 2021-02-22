@@ -4,20 +4,23 @@ When working with multiple screens you'll often find that windows don't stay whe
 
 ## Command Line Arguments
 
-`-saveall`   Save all open windows to the configuration file  
-`-restore`  Restore layout found in the configuration file  
-`-autoexit`  Don't keep TANWindowManager active in the tray. |Useful with the above 2 switches.
+`-saveall`   Save all open windows to the configuration file under the 'Default' profile. 
+`-restore`  Restore layout for the 'Default' profile from the configuration file.  
+`-restore=<Name>`  Restore layout for the '<Name>' profile from the configuration file.  Use quotes if the profile name has spaces or special characters.  
+`-autoexit`  Don't keep TANWindowManager active in the tray. Useful with the above switches.
 
 ### Examples
 `TANWindowMgr.exe -saveall -autoexit`  
 `TANWindowMgr.exe -restore -autoexit`
+`TANWindowMgr.exe -restore="My Home Layout" -autoexit`
 
 ## Known Limitations
-Does not reliably handle situations where you have multiple instances of the same program open.
+1. Does not reliably handle situations where you have multiple instances of the same program open.
+2. Is not compatible with Windows UWP/Metro apps (e.g. Sticky Notes, Calculator).
 
 ## Getting Started
 
-### Run the Pre-Built Binary
+### Run the Pre-Built Binary (recommended)
 
 1. In the Releases section in the right-hand sidebar, click the latest version and from there download TANWindowMgr.exe.
 2. The Settings.ini will be created in the same directory as TANWindowMgr.exe. If you move the .exe file, move the Settings.ini file with it.
