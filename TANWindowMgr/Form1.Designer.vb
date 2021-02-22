@@ -30,6 +30,10 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnSaveAll = New System.Windows.Forms.Button()
+        Me.cboProfiles = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnDelProfile = New System.Windows.Forms.Button()
+        Me.btnAddProfile = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lvApps
@@ -39,7 +43,7 @@ Partial Class Form1
         Me.lvApps.HideSelection = False
         Me.lvApps.Location = New System.Drawing.Point(12, 29)
         Me.lvApps.Name = "lvApps"
-        Me.lvApps.Size = New System.Drawing.Size(596, 251)
+        Me.lvApps.Size = New System.Drawing.Size(478, 251)
         Me.lvApps.TabIndex = 0
         Me.lvApps.UseCompatibleStateImageBehavior = False
         Me.lvApps.View = System.Windows.Forms.View.Details
@@ -52,11 +56,11 @@ Partial Class Form1
         'WindowTitle
         '
         Me.WindowTitle.Text = "Window Title"
-        Me.WindowTitle.Width = 470
+        Me.WindowTitle.Width = 354
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(429, 286)
+        Me.btnSave.Location = New System.Drawing.Point(318, 285)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(88, 23)
         Me.btnSave.TabIndex = 1
@@ -68,33 +72,85 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(13, 10)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(302, 13)
+        Me.Label1.Size = New System.Drawing.Size(222, 13)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Select the applications for which you want to save the location"
+        Me.Label1.Text = "Select the applications and the profile to save"
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(533, 286)
+        Me.btnCancel.Location = New System.Drawing.Point(415, 285)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 3
-        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.Text = "Close"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btnSaveAll
         '
-        Me.btnSaveAll.Location = New System.Drawing.Point(336, 286)
+        Me.btnSaveAll.Location = New System.Drawing.Point(234, 285)
         Me.btnSaveAll.Name = "btnSaveAll"
         Me.btnSaveAll.Size = New System.Drawing.Size(75, 23)
         Me.btnSaveAll.TabIndex = 4
         Me.btnSaveAll.Text = "Save All"
         Me.btnSaveAll.UseVisualStyleBackColor = True
         '
+        'cboProfiles
+        '
+        Me.cboProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboProfiles.FormattingEnabled = True
+        Me.cboProfiles.Location = New System.Drawing.Point(50, 287)
+        Me.cboProfiles.Name = "cboProfiles"
+        Me.cboProfiles.Size = New System.Drawing.Size(118, 21)
+        Me.cboProfiles.TabIndex = 5
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 291)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(36, 13)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Profile"
+        '
+        'btnDelProfile
+        '
+        Me.btnDelProfile.BackColor = System.Drawing.Color.Transparent
+        Me.btnDelProfile.FlatAppearance.BorderSize = 0
+        Me.btnDelProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btnDelProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btnDelProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelProfile.ForeColor = System.Drawing.Color.Transparent
+        Me.btnDelProfile.Image = Global.TANWindowMgr.My.Resources.Resources.x
+        Me.btnDelProfile.Location = New System.Drawing.Point(191, 285)
+        Me.btnDelProfile.Name = "btnDelProfile"
+        Me.btnDelProfile.Size = New System.Drawing.Size(21, 23)
+        Me.btnDelProfile.TabIndex = 7
+        Me.btnDelProfile.UseVisualStyleBackColor = False
+        '
+        'btnAddProfile
+        '
+        Me.btnAddProfile.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddProfile.FlatAppearance.BorderSize = 0
+        Me.btnAddProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btnAddProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btnAddProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddProfile.ForeColor = System.Drawing.Color.Transparent
+        Me.btnAddProfile.Image = Global.TANWindowMgr.My.Resources.Resources.greenPlus
+        Me.btnAddProfile.Location = New System.Drawing.Point(170, 285)
+        Me.btnAddProfile.Name = "btnAddProfile"
+        Me.btnAddProfile.Size = New System.Drawing.Size(21, 23)
+        Me.btnAddProfile.TabIndex = 8
+        Me.btnAddProfile.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(620, 316)
+        Me.ClientSize = New System.Drawing.Size(502, 316)
+        Me.Controls.Add(Me.btnAddProfile)
+        Me.Controls.Add(Me.btnDelProfile)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.cboProfiles)
         Me.Controls.Add(Me.btnSaveAll)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Label1)
@@ -119,4 +175,8 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnSaveAll As Button
+    Friend WithEvents cboProfiles As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents btnDelProfile As Button
+    Friend WithEvents btnAddProfile As Button
 End Class
