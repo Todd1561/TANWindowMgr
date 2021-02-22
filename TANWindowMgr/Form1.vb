@@ -75,7 +75,7 @@ Public Class Form1
         'save list to settings file
         File.WriteAllLines("Settings.ini", lines)
 
-        Me.Close()
+        'Me.Close()
 
     End Sub
 
