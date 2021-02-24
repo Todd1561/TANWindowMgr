@@ -14,6 +14,8 @@ Public Class Form1
     Private Shared Function SetForegroundWindow(ByVal hWnd As IntPtr) As Boolean
     End Function
 
+    Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As IntPtr, ByRef lpRect As RECT) As Boolean
+
     '<DllImport("user32.dll", SetLastError:=True)>
     'Private Shared Function FindWindow(idThread As Integer, lpWindowName As String) As IntPtr
     'End Function
@@ -40,6 +42,9 @@ Public Class Form1
     End Structure
 
     Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        btnSave.Enabled = False
+        btnSaveAll.Enabled = False
+        btnCancel.Enabled = False
 
         GetWindowList()
 
@@ -65,10 +70,15 @@ Public Class Form1
 
                 Dim hWnd As IntPtr = WindowList(item.Text).MainWindowHandle ' FindWindow(WindowList(item.Text).Id, Nothing)
                 Dim wpTemp As WINDOWPLACEMENT
+                Dim rectTemp As RECT
+
                 GetWindowPlacement(hWnd, wpTemp)
+                GetWindowRect(hWnd, rectTemp)  'this function reliably get position for snapped windows
 
-                lines.Add(item.Text & "," & wpTemp.rcNormalPosition.Left & "," & wpTemp.rcNormalPosition.Top & "," & wpTemp.rcNormalPosition.Bottom & "," & wpTemp.rcNormalPosition.Right & "," & wpTemp.showCmd & "," & cboProfiles.SelectedItem)
-
+                'lines.Add(item.Text & "," & wpTemp.rcNormalPosition.Left & "," & wpTemp.rcNormalPosition.Top & "," & wpTemp.rcNormalPosition.Bottom & "," & wpTemp.rcNormalPosition.Right & "," & wpTemp.showCmd & "," & cboProfiles.SelectedItem)
+                lines.Add(item.Text & "," & rectTemp.Left & "," & rectTemp.Top & "," & rectTemp.Bottom & "," & rectTemp.Right & "," & wpTemp.showCmd & "," & cboProfiles.SelectedItem)
+                'Debug.WriteLine("gwp:" & wpTemp.rcNormalPosition.Left & "," & wpTemp.rcNormalPosition.Top & "," & wpTemp.rcNormalPosition.Bottom & "," & wpTemp.rcNormalPosition.Right)
+                'Debug.WriteLine("gwr:" & rectTemp.Left & "," & rectTemp.Top & "," & rectTemp.Bottom & "," & rectTemp.Right)
             End If
         Next
 
@@ -76,7 +86,9 @@ Public Class Form1
         File.WriteAllLines("Settings.ini", lines)
 
         'Me.Close()
-
+        btnSave.Enabled = True
+        btnSaveAll.Enabled = True
+        btnCancel.Enabled = True
     End Sub
 
     Sub GetWindowList()
