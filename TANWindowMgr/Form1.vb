@@ -97,6 +97,7 @@ Public Class Form1
         WindowList.Clear()
 
         For Each proc As Process In pList
+            'don't include TANWindowMgr itself in the list
             If Not String.IsNullOrEmpty(proc.MainWindowTitle) Then
 
                 Try
