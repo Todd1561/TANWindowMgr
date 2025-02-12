@@ -1,3 +1,10 @@
+# Project Retirement
+I don't anticipate having time to continue developing this project so for now I'm archiving it.  If you're looking for capabilties beyond what TAN Window Manager can provide I suggest trying WindowManager by DeskSoft (https://www.desksoft.com/WindowManager.htm)  I have no affiliation with that company, but it seems to be a very feature complete solution.  Even I now use it in place of TAN Window Manager and have bought a licensed copy.
+
+Thank you for all the support!
+
+~Todd
+
 # TAN Window Manager
 
 When working with multiple screens you'll often find that windows don't stay where you put them when you move between monitor changes or even awaking from sleep. This small program allows you to save the location and size of selected windows so you can easily restore their location later. 
